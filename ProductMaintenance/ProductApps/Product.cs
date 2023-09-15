@@ -56,6 +56,7 @@ namespace ProductApps
         //Constructor for Product
         public Product(decimal price, int quantity)
         {
+            Delivery = 25;
             Price = price;
             Quantity = quantity;
         }
@@ -63,7 +64,7 @@ namespace ProductApps
         //Calculate the total payment
         public void calTotalPayment()
         {
-            TotalPayment = Price * Quantity;
+            TotalPayment = Price * Quantity + Delivery;
         }
     }
 }
