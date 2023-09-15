@@ -33,6 +33,7 @@ namespace ProductApps
             {
                 int wrapCost = 5;
                 int deliveryCost = 25;
+                double GST = 0.10;
 
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
                 cProduct.calTotalPayment();
@@ -45,6 +46,10 @@ namespace ProductApps
                 
                 double subTotal = Convert.ToDouble(totalChargeTextBlock.Text);
                 totalChargeAndWrapTextBlock.Text = Convert.ToString(subTotal + wrapCost);
+
+                double totalBeforeTax = Convert.ToDouble(totalChargeAndWrapTextBlock.Text);
+                double total = (totalBeforeTax * GST) + totalBeforeTax;
+                afterGSTTextBlock.Text = Convert.ToString(total);
 
             }
             catch (FormatException)
